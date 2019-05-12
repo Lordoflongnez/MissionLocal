@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="/css/registration.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="box">
+        <h1 class="blue">Inscription !</h1>
+
+        <div class="inpu">
+            {{ form_start(form) }}
+
+            {{ form_row(form.username, {'label': ' ','attr':{'placeholder': 'L\'identifiant'}})}}
+    {{ form_row(form.nom, {'label': ' ','attr':{'placeholder': 'Le Nom'}})}}
+    {{ form_row(form.prenon, {'label': ' ','attr':{'placeholder': 'Le Prénom'}})}}
+    {{ form_row(form.password, {'label': ' ','attr':{'placeholder': 'Le Mot de passe'}})}}
+    {{ form_row(form.confirm_password, {'label': ' ','attr':{'placeholder': 'Répétez le Mot de passe'}})}}
+
+
+
+    <button type="submit" class="btn btn-success sub">Crée !</button>
+    {{ form_end(form)}}
+    </div>
+</div>
+{% endblock %}

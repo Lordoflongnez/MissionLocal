@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="/css/navbar.css" rel="stylesheet">
+        <title>
+            {% block title %}Intranet !
+            {% endblock %}
+        </title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>        
+<nav class="main-navigation">
+            <div class="navbar-header animated fadeInUp">
+                <a class="navbar-brand" href="#">
+                    <img alt="Logo Mission Local Douaisis" class="logo" height="60px" src="/img/logo-ML-quadri.png" width="127px">
+                </a>
+            </div>
+            <ul class="nav-list">    
+    {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-list-item">
+                    <a class="nav-link" href="/admin">Administration</a>
+                </li>
+                <li class="nav-list-item">
+                    <a class="nav-link" href="/inscription">Inscription</a>
+                </li>
+    {% endif %}
+    {% if is_granted('ROLE_USER') %}
+
+                <li class="nav-list-item">
+                    <a class="nav-link" href="/outils">Les Outils</a>
+                </li>
+                <li class="nav-list-item">
+                    <a class="nav-link" href="/logout">Déconnexion</a>
+                </li>
+            </ul>
+        </nav>
+{% endif %}
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,77 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./../img/network-2402637_1280.jpg);
+    background-size: cover;
+}
+
+.box {
+    
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 40%;
+    height: 350px;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255,0.5);
+    color: #fff; 
+    z-index: 0;
+    top: 8em;
+    margin: 0 30%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.sub {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 5px solid #fad02c;
+    padding: 14px 40px;
+    outline: none;
+    color: #fad02c;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.sub:hover {
+    background: #fad02c;
+    border: 5px solid #fad02c;
+}
+
+.box input[type="text"], .box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    text-align: center;
+    border: 5px solid #44ACB9;
+    padding: 14px 10px;
+    width: 300px;
+    color: rgb(255, 0, 0);
+    border-radius: 24px;
+    transition: 0.25s;
+    margin: 25px;
+}
+
+.box input[type="text"]:focus, .box input[type="password"]:focus {
+    width: 325px;
+    border-color: #F6A033;
+}
+
+::placeholder {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.alert {
+    font-size: 1.5em;
+    color: red;
+    margin: 2px;
+}
