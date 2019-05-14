@@ -6,20 +6,23 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="/css/navbar.css" rel="stylesheet">
+        <script type="text/javascript" src="/js/pix.js"></script>
         <title>
             {% block title %}Intranet !
             {% endblock %}
         </title>
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>        
+    <body>
+{% if is_granted('ROLE_USER') %}        
 <nav class="main-navigation">
             <div class="navbar-header animated fadeInUp">
                 <a class="navbar-brand" href="#">
                     <img alt="Logo Mission Local Douaisis" class="logo" height="60px" src="/img/logo-ML-quadri.png" width="127px">
                 </a>
             </div>
-            <ul class="nav-list">    
+            <ul class="nav-list">  
+            {% endif %}  
     {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-list-item">
                     <a class="nav-link" href="/admin">Administration</a>
