@@ -1,4 +1,15 @@
+# config/packages/easy_admin.yaml
 easy_admin:
-   entities:
-       # List the entity class name you want to manage
-       - App\Entity\User
+    entities:
+        Utilisateur:
+            class: App\Entity\User
+            form:  # <-- 'form' is applied to both 'new' and 'edit' views
+                fields:
+                    - 'username'
+                    - 'nom'
+                    - 'prenon'
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, expanded: true, choices: { Utilisateur : ROLE_USER, Editeur : ROLE_EDITOR, Admin : ROLE_ADMIN } } }
+        Outil:
+            class: App\Entity\Application
+
+    site_name: 'Mission Local Douaisis'
