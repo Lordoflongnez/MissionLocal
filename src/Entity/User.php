@@ -91,6 +91,19 @@ class User implements UserInterface
         return $this;
     }
 
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPlainPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
     public function getPassword(): ?string
     {
         return $this->password;

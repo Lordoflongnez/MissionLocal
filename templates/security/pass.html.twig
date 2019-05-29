@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block stylesheets %}
+    <link href="/css/login.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="box">
+        <form method="post">
+            <div class="inpu">
+                <h1 class="h3 mb-3 font-weight-normal">Modifier mon mot de passe !</h1>
+
+                {{ form(form) }}
+            </div>
+        </form>
+    </div>
+{% endblock %}
