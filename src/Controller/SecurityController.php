@@ -16,20 +16,11 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
-class SecurityController extends AbstractController
-{
-    /**
-     * @Route("/security", name="security")
-     */
-    public function index()
-    {
-        return $this->render('security/index.html.twig', [
-            'controller_name' => 'SecurityController',
-        ]);
-    }
 
+class SecurityController extends AbstractController
+{   
     /**
-    * @Route("/inscription", name="security_registration")
+    * @Route("/editor/inscription", name="security_registration")
     */
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
     { 
@@ -59,7 +50,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-    * @Route("/outils", name="security_outils")
+    * @Route("/profile/outils", name="security_outils")
     */
     public function outils()
     {
@@ -77,7 +68,7 @@ class SecurityController extends AbstractController
     } 
     
     /**
-    * @Route("/pass", name="app_pass")
+    * @Route("/profile/pass", name="app_pass")
     */
     public function resetPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -88,22 +79,16 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $oldPassword = $request->request->get('change_password')['oldPassword'];
-
             // Si l'ancien mot de passe est bon
-            if ($passwordEncoder->isPasswordValid($user, $oldPassword)) {
-                $newEncodedPassword = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-                $user->setPassword($newEncodedPassword);
+            $newEncodedPassword = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($newEncodedPassword);
                 
-                $em->persist($user);
-                $em->flush();
+            $em->persist($user);
+            $em->flush();
 
-                $this->addFlash('notice', 'Votre mot de passe à bien été changé !');
+            $this->addFlash('notice', 'Votre mot de passe à bien été changé !');
 
-                return $this->redirectToRoute('/');
-            } else {
-                $form->addError(new FormError('Ancien mot de passe incorrect'));
-            }
+            return $this->redirectToRoute('app_logout');
         }
     	
         return $this->render('security/pass.html.twig', array(
