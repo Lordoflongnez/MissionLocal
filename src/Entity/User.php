@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -38,6 +39,11 @@ class User implements UserInterface
      * @Assert\Length(min="6", minMessage="Le mot de passe doit faire minimum 6 caractères")
      */
     private $password;
+
+    /**
+    * @Assert\Length(min="6", minMessage="Le mot de passe doit faire minimum 6 caractères")
+    */
+    private $plainPassword;
 
     /**
     * @Assert\Length(min="6", minMessage="Les mots de passe doit faire minimum 6 caractères")
@@ -87,6 +93,19 @@ class User implements UserInterface
     public function setPrenon(string $prenon): self
     {
         $this->prenon = $prenon;
+
+        return $this;
+    }
+
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
 
         return $this;
     }

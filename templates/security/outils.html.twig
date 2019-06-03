@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    <a class="pass" href="{{path('app_pass')}}">Changer mon mot de passe</a>
     <div class="nom">
         <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
         <div class="container-fluid text">
@@ -18,24 +19,12 @@
                 </div>
             {% endfor %}
         </div>
-        {# <div class="container-fluid text">
-            <div class="row button_conainer">
-                <div class="col-12 col-xl-12 mdr">
-                    <a id="pix" class="mld" href="/Pixiu.rdp" target="_blank" onclick="open_pix()">Télécharger Pixiu</a>
-                </div>
-                <div>
-                <h1>Vous venez de téléchargé PIXIU il se trouve dans votre fichier de téléchargement</h1>
-                <button id="close" onclick="close_pix()">Fermer</button>
-                </div>
-            
-            </div>
-        </div> #}
+
         <a id="open" class="open" href="/Pixiu.rdp"> Télécharger Pixiu </a>
         <div id="overlay" class="overlay">
-            <h1>Vous venez de Téléchargé PIXIU, il se trouve dans votre dossier de Téléchargement.</h1>
+            <h1>Vous venez de Télécharger PIXIU, il se trouve dans votre dossier de Téléchargement. <br> <br> A la première connexion, ajoutez MLD\ devant votre identifiant</h1>
             <a id="close" class="close">Fermer</a>
         </div>
-
 
     </div>
 {% endblock %}

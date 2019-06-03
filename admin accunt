@@ -1,0 +1,8 @@
+INSERT INTO `user` (`username`, `nom`, `prenon`, `password`, `roles`) VALUES ('admin', 'dacquignie', 'matthias', '$2y$13$en6z9G441EhuazZ7l4bo1.XzfIV2m2HYmu7.taZwCRBVBko7BUOCO', '{\"0\": \"ROLE_USER\", \"1\": \"ROLE_EDITOR\", \"2\": \"ROLE_ADMIN\"}');
+
+
+
+- dans le terminal => bin/console security:encode-password 
+                   => prendre le  Hash 
+
+                   => puis php bin/console doctrine:quarry:sql avec la ligne en haut !!!   ne pas oublier de changer les info !!!   

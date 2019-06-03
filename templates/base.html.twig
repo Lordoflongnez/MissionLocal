@@ -27,14 +27,16 @@
                 <li class="nav-list-item">
                     <a class="nav-link" href="/admin">Administration</a>
                 </li>
+    {% endif %}
+    {% if is_granted('ROLE_EDITOR') %}   
                 <li class="nav-list-item">
-                    <a class="nav-link" href="/inscription">Inscription</a>
+                    <a class="nav-link" href="{{path('security_registration')}}">Inscription</a>
                 </li>
     {% endif %}
     {% if is_granted('ROLE_USER') %}
 
                 <li class="nav-list-item">
-                    <a class="nav-link" href="/outils">Les Outils</a>
+                    <a class="nav-link" href="{{path('security_outils')}}">Les Outils</a>
                 </li>
                 <li class="nav-list-item">
                     <a class="nav-link" href="/logout">Déconnexion</a>
